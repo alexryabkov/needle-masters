@@ -1,0 +1,39 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+{{ super() }}
+<div class="row-fluid">
+
+    <div>
+        {% if current_user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="POST" action="" class="text-right">
+                        {{ form.csrf_token }}
+                        {% if form.csrf_token.errors %}
+                            <div class="warning">You have submitted an invalid CSRF token</div>
+                        {% endif %}
+                        {% for f in form if f.type != 'CSRFTokenField' %}
+                        <div class="form-group">
+                        {{ f.label }}
+                        {{ f }}
+                        {% if f.errors %}
+                        <ul>
+                            {% for e in f.errors %}
+                            <li>{{ e }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        </div>
+                        {% endfor %}
+                        <button class="btn pull-right" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <a href="{{ url_for('admin.login_view') }}">Please login as Admin</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}

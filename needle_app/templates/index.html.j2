@@ -1,0 +1,142 @@
+{% extends "base.html.j2" %}
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+{% block body_metadata %}
+    id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"
+{% endblock %}
+{% block body_content %}
+    <div class="cover">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top"><span>Штучки с иголочки</span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <li class="hidden">
+                            <a class="page-scroll" href="#page-top"></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#about-us">О нас<br></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact-us">Контакты</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('gallery') }}">Галерея<br></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cover-image"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Штучки с иголочки</h1>
+                    <hr>
+                    <p>Преобразуем повседневность и делаем это со вкусом!</p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron" id="about-us">
+        <div class="container">
+            <h1 class="text-center">О нас</h1>
+            <hr>
+            <p>Мы - небольшое, но дружное сообщество мастеров, влюбленных в свое дело. Основные направления нашей деятельности - украшения из бисера, декоративные изделия, выполненные с помощью вышивки крестом, а также эксклюзивная вязаная одежда. Наша продукция
+                - это уникальные работы, сделанные с большой любовью и усердием. Мы хотим сделать жизнь наших клиентов красивее и помогаем увидеть прекрасное в мелочах. На нашем сайте Вы можете не только посмотреть примеры работ и заказать понравившуюся
+                вещь, но и связаться с нами для обсуждения возможности изготовления изделия по Вашим эскизам.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="preview">
+            <div class="col-md-4 img-container">
+                <a data-rel="lightcase:mainPageCollCollection" href="{{ url_for('static', filename='images/main_page/DSC01908.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/main_page/DSC01908.jpg') }}" class="img-responsive">
+                    <div class="fa fa-4x fa-search-plus text-muted"></div>
+                </a>
+            </div>
+            <div class="col-md-4 img-container">
+                <a data-rel="lightcase:mainPageCollCollection" href="{{ url_for('static', filename='images/main_page/DSC01872.jpg') }}">
+                    <img src="{{ url_for('static', filename='images/main_page/DSC01872.jpg') }}" class="img-responsive">
+                    <div class="fa fa-4x fa-search-plus text-muted"></div>
+                </a>
+            </div>
+            <div class="col-md-4 img-container">
+                <a data-rel="lightcase:mainPageCollCollection" href="{{ url_for('static', filename='images/main_page/DSC01415.JPG') }}">
+                    <img src="{{ url_for('static', filename='images/main_page/DSC01415.JPG') }}" class="img-responsive">
+                    <div class="fa fa-4x fa-search-plus text-muted"></div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <br>
+                <a class="btn btn-block btn-default btn-lg" href="{{ url_for('gallery') }}" role="button" id="view-gallery-btn">Смотреть галерею</a>
+            </div>
+        </div>
+        <hr>
+        <br>
+    </div>
+    <div class="section" id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="contact-us-header" class="text-center">
+                        <h1>Напишите нам</h1>
+                        <p>Если у Вас есть какие-либо вопросы, оставьте нам сообщение</p>
+                    </div>
+                    <form role="form" id="contact-form" method="post" action="/sendemail" autocomplete="off">
+                        {% for field in form %}
+                        <div class="col-md-12 form-group">
+                            {{ field.label(class_="sr-only control-label")}}
+                            {{ field(class_="form-control", required=True)}}
+                        </div>
+                        {% endfor %}
+                        {% if form.csrf_token.errors %}
+                            <div class="warning">You have submitted an invalid CSRF token</div>
+                        {% endif %}
+                        <button type="submit" class="col-sm-2 col-sm-offset-5 btn btn-default btn-lg" id="send-email-btn">Отправить</button>
+                    </form>
+                    <div class="modal fade" tabindex="-1" role="dialog" id="msg-sent">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title">Отправлено!</h3>
+                          </div>
+                          <div class="modal-body text-center">
+                            <p>Спасибо за Ваше сообщение! Мы свяжемся с Вами в ближайшее время.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default center-block" data-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ super() }}
+    <script>
+        $(function() {
+            {% if msg_sent %}
+                $('#msg-sent').modal('show');
+                $('#msg-sent').on('hidden.bs.modal', function (e) {
+                    window.location = '{{ url_for("index") }}#contact-us';
+                })
+            {% endif %}
+        })
+    </script>
+{% endblock %}

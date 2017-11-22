@@ -1,0 +1,101 @@
+{% extends "base.html.j2" %}
+
+{% block body_metadata %}
+    id="gallery-page-top"
+{% endblock %}
+{% block body_content %}
+  <div id="wrap">
+    <div class="navbar navbar-default navbar-fixed-top" id="gallery-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Переключить навигацию</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}#page-top"><span>Штучки с иголочки</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ url_for('index') }}#about-us">О нас<br></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('index') }}#contacts">Контакты</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">Галерея<br></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="gallery-header">
+                <h1 class="text-center">Наши работы</h1>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" role="navigation" id="categories-tabs">
+                    <ul class="nav nav-justified nav-tabs">
+                        {% for categ_id, categ_display_name in categories.items() %}
+                            {% if loop.index == 1 %}
+                            <li class="active">
+                            {% else %}
+                            <li>
+                            {% endif %}
+                                <a data-toggle="tab" href="#{{ categ_id }}">{{ categ_display_name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container tab-content">
+        {% for categ_id in categories.keys() %}
+            <div id="{{ categ_id }}" class="{{ 'tab-pane fade in active' if loop.index == 1 else 'tab-pane fade' }}">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div aria-label="Gallery navigation" class="pagination" id="{{ categ_id }}-pagination-top"></div>
+                    </div>
+                </div>
+                <div class="row gallery-row">
+                    {% for idx in range(images_per_page) %}
+                    <div class="col-md-4 {{ categ_id }}-item placeholder">
+                        <div class="img-container gal">
+                          <a data-rel="lightcase" href="#">
+                            <img src="http://placehold.it/1667x994" class="img-responsive">
+                            <div class="fa fa-4x fa-search-plus text-muted"></div>
+                          </a>
+                        </div>
+                        <h4 class="pull-right price"></h4>
+                        <h4 class="item-name"></h4>
+                        <p></p>
+                    </div>
+                    {% if loop.index is divisibleby 3 and not loop.last %}
+                </div>
+                <div class="row gallery-row">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div aria-label="Gallery navigation" class="pagination" id="{{ categ_id }}-pagination-bottom"></div>
+                    </div>
+                </div>
+            </div>
+       {% endfor %}
+    </div>
+  </div>
+    {{ super() }}
+    <script>
+        //Pagination with "bootpag" jQuery plugin
+        paginateImages({{ pages_per_category }});
+    </script>
+{% endblock %}

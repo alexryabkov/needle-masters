@@ -1,0 +1,300 @@
+// "out": true
+// @import "https://raw.githubusercontent.com/Pingendo/pingendo-bootstrap/gh-pages/less/pingendo-custom.less";
+@import "custom";
+// =========
+// Common styles mixins
+// =========
+
+*:focus {
+    outline: none !important;
+}
+
+.header_font {
+    font-family: 'Philosopher', sans-serif;
+    font-style: italic;
+    color: white;
+}
+
+hr {
+    height: 1px;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.btn-default {
+    border-radius: 25px;
+}
+
+.nav-collapse {
+    background-color: white !important;
+    border-bottom: 1px solid darkgray;
+
+    .navbar-brand > span {
+        font-size: 25px;
+    }
+
+    .nav,
+    .navbar-brand {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    div > .navbar-nav > li.active {
+        & > a {
+            background-color: lightgray !important;
+            border-radius: 5px;
+        }
+
+        & > a:focus,
+        & > a:hover {
+            color: black;
+        }
+    }
+
+    .navbar-brand > span,
+    .navbar-nav > li > a {
+        color: black;
+    }
+}
+
+.navbar-style {
+    li {
+        a {
+            font-size: 18px;
+            .header_font;
+        }
+        // a:focus,
+        a:hover {
+            color: darkgray;
+        }
+    }
+}
+// =========
+// Main page cover
+// =========
+
+.cover {
+    .cover-image {
+        background-image: url('images/main_page/cover.jpg');
+        filter: brightness(40%);
+    }
+
+    .navbar {
+        position: fixed;
+    }
+
+    .navbar-brand > span {
+        font-size: 30px;
+        .header_font;
+    }
+
+    .navbar-default .navbar-nav {
+        .navbar-style;
+        .header_font;
+    }
+
+    & > .top-nav-collapse {
+        .nav-collapse;
+    }
+
+    h1,
+    p {
+        .header_font;
+        text-shadow: rgba(0, 0, 0, 0.14902) 0 3px 5px, rgba(255, 255, 255, 0.298039) 0 -5px 35px;
+        font-size: 63px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    hr {
+        background: white;
+        max-width: 600px;
+    }
+}
+//"gallery.html" navbar
+
+#gallery-page-top {
+    padding-top: 90px;
+}
+
+#gallery-navbar {
+    .header_font;
+    .navbar-style;
+    .nav-collapse;
+}
+// =========
+// "About us" jumbotron
+// =========
+
+#about-us,
+#gallery-header {
+    background: none;
+
+    h1,
+    p {
+        .header_font;
+        color: black;
+    }
+
+    p {
+        text-align: justify;
+        font-family: 'Lora', serif;
+        font-style: normal;
+        text-indent: 30px;
+    }
+}
+// =========
+//"Preview" section
+// =========
+
+#preview,
+.gallery-row {
+    .gal {
+        position: relative;
+    }
+
+    .fa-search-plus {
+        transition: 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .img-container:hover {
+        .img-responsive {
+            transition: 0.5s ease;
+            opacity: 0.3;
+        }
+
+        .fa-search-plus {
+            opacity: 1;
+        }
+    }
+
+    div img {
+        margin-bottom: 1rem;
+    }
+}
+
+#view-gallery-btn {
+    background-color: gray;
+    color: white;
+
+    &:active,
+    &:hover {
+        background-color: lightgray;
+        color: gray;
+    }
+}
+// =========
+// "Contact us" section
+// =========
+
+#contact-us {
+    background-color: lightgray;
+
+    #contact-us-header {
+        h1,
+        p {
+            .header_font;
+            color: black;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        font-family: 'Lora', serif;
+        padding-right: 5px;
+        padding-left: 5px;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid gray;
+        font-size: 1.5em;
+        background: none;
+        box-shadow: none !important;
+        resize: none;
+    }
+
+    #input-email,
+    #input-name {
+        height: 60px;
+    }
+
+    #input-name {
+        border-top: 1px solid gray;
+    }
+
+    #send-email-btn {
+        margin-top: 25px;
+    }
+}
+@media screen and (min-width: @screen-sm-min) {
+    #contact-us-header,
+    #gallery-header {
+        h1 {
+            font-size: 63px;
+        }
+    }
+}
+
+#wrap {
+  min-height: 90.4%;
+  // height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+
+// =========
+// Page footer
+// =========
+
+footer {
+    border-top: 2px solid gray;
+    padding: 20px 0 30px !important;
+
+    .background-image {
+        background-image: url('images/main_page/footer_background.jpg');
+        opacity: 0.3;
+    }
+
+    .social a {
+        padding-right: 20px !important;
+    }
+
+    .copyright {
+        margin-top: 30px;
+        margin-bottom: -15px;
+    }
+}
+// =========
+// Gallery navigation
+// =========
+
+.pagination > li > a {
+    font-size: 17px;
+}
+
+.nav-justified > li > a {
+    // font-family: 'PT Sans', sans-serif;
+    // font-family: 'Philosopher', sans-serif;
+    font-size: 18px;
+}
+
+a[class*=lightcase-icon-]:before {
+    text-decoration: none;
+}
+
+.modal-header{
+    border: none;
+}

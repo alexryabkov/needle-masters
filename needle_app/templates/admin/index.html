@@ -1,0 +1,69 @@
+{% extends 'admin/master.html' %} {% block body %} {{ super() }}
+<div class="row-fluid">
+
+    <div>
+        {% if current_user.is_authenticated %}
+        <h1>Visits Statistics</h1>
+        <canvas id="visitsChart" height="400"></canvas>
+        {% else %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <form method="POST" action="" class="pull-right">
+                        {{ form.hidden_tag() if form.hidden_tag }}
+                        {% for f in form if f.type != 'CSRFTokenField' %}
+                        <div class="form-group pull-right">
+                            {{ f.label }} {{ f }} {% if f.errors %}
+                            <ul>
+                                {% for e in f.errors %}
+                                <li class="pull-right">{{ e }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        <button class="btn pull-right" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+<script>
+    // get bar chart canvas
+    window.onload = function() {
+
+        var ctx = $("#visitsChart");
+        // draw bar chart
+        var visitsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ visits_dates | safe}},
+                datasets: [{
+                    label: 'Number of Visits',
+                    data: {{ num_of_visits }},
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 1000,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+    }
+</script>
+{% endblock body %}

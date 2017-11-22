@@ -1,0 +1,10 @@
+{% extends 'admin/base.html' %}
+
+{% block access_control %}
+{% if current_user.is_authenticated %}
+{{ super() }}
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('admin.logout_view') }}">Logout</a></li>
+    </ul>
+{% endif %}
+{% endblock access_control %}

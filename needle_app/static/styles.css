@@ -1,0 +1,464 @@
+/*!
+ * Pingendo customization for Bootstrap
+ * Homepage: http://pingendo.com
+ * Copyright 2015 Pingendo
+ * Licensed under MIT
+*/
+/* Google web fonts support */
+@import url('https://fonts.googleapis.com/css?family=PT Sans|PT Sans');
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+/* text-inverse is deprecated */
+.text-inverse {
+  color: #ffffff;
+}
+/* TODO: verify if we can touch only section */
+.jumbotron {
+  margin-bottom: 0px !important;
+}
+.jumbotron h1.text-primary {
+  color: #337CBB !important;
+}
+.jumbotron h1.text-inverse {
+  color: #ffffff !important;
+}
+.jumbotron h1.text-info {
+  color: #5bc0de !important;
+}
+.jumbotron h1.text-success {
+  color: #5cb85c !important;
+}
+.jumbotron h1.text-warning {
+  color: #f0ad4e !important;
+}
+.jumbotron h1.text-danger {
+  color: #d9534f !important;
+}
+.carousel .item img {
+  min-width: 100%;
+}
+.section {
+  position: relative;
+  padding: 35px 0;
+}
+.section .background-image {
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.section .background-image.background-image-fixed {
+  background-attachment: fixed;
+}
+.section-primary {
+  background-color: #337CBB !important;
+  color: white;
+}
+.section-primary .background-image {
+  opacity: 0.5;
+}
+.section-info {
+  background-color: #5bc0de !important;
+  color: white;
+}
+.section-info .background-image {
+  opacity: 0.5;
+}
+.section-success {
+  background-color: #5cb85c !important;
+  color: white;
+}
+.section-success .background-image {
+  opacity: 0.5;
+}
+.section-warning {
+  background-color: #f0ad4e !important;
+  color: white;
+}
+.section-warning .background-image {
+  opacity: 0.5;
+}
+.section-danger {
+  background-color: #d9534f !important;
+  color: white;
+}
+.section-danger .background-image {
+  opacity: 0.5;
+}
+.cover {
+  margin-bottom: 0px !important;
+  padding: 0px 0px;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 100%;
+}
+.cover h1.text-primary {
+  color: #337CBB !important;
+}
+.cover h1.text-inverse {
+  color: #ffffff !important;
+}
+.cover h1.text-info {
+  color: #5bc0de !important;
+}
+.cover h1.text-success {
+  color: #5cb85c !important;
+}
+.cover h1.text-warning {
+  color: #f0ad4e !important;
+}
+.cover h1.text-danger {
+  color: #d9534f !important;
+}
+@media screen and (min-width: 768px) {
+  .cover {
+    padding: 0px;
+  }
+  .container .cover,
+  .container-fluid .cover {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+.cover .navbar {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  border: none;
+  background-color: transparent !important;
+}
+.cover .navbar .navbar-nav li.active a {
+  background-color: transparent !important;
+}
+.cover .navbar .navbar-toggle {
+  border-color: transparent;
+}
+.cover .navbar .navbar-toggle:hover,
+.cover .navbar .navbar-toggle:focus {
+  background-color: transparent;
+}
+.cover .navbar .navbar-toggle .icon-bar {
+  background-color: black;
+}
+.cover .navbar.navbar-inverse .navbar-toggle {
+  border-color: transparent;
+}
+.cover .navbar.navbar-inverse .navbar-toggle:hover,
+.cover .navbar.navbar-inverse .navbar-toggle:focus {
+  background-color: transparent;
+}
+.cover .navbar.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.cover .cover-image {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.cover .cover-image.background-image-fixed,
+.cover .cover-image.cover-image-fixed {
+  background-attachment: fixed;
+}
+*:focus {
+  outline: none !important;
+}
+.header_font {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+}
+hr {
+  height: 1px;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.btn-default {
+  border-radius: 25px;
+}
+.nav-collapse {
+  background-color: white !important;
+  border-bottom: 1px solid darkgray;
+}
+.nav-collapse .navbar-brand > span {
+  font-size: 25px;
+}
+.nav-collapse .nav,
+.nav-collapse .navbar-brand {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.nav-collapse div > .navbar-nav > li.active > a {
+  background-color: lightgray !important;
+  border-radius: 5px;
+}
+.nav-collapse div > .navbar-nav > li.active > a:focus,
+.nav-collapse div > .navbar-nav > li.active > a:hover {
+  color: black;
+}
+.nav-collapse .navbar-brand > span,
+.nav-collapse .navbar-nav > li > a {
+  color: black;
+}
+.navbar-style li a {
+  font-size: 18px;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+}
+.navbar-style li a:hover {
+  color: darkgray;
+}
+.cover .cover-image {
+  background-image: url('images/main_page/cover.jpg');
+  filter: brightness(40%);
+}
+.cover .navbar {
+  position: fixed;
+}
+.cover .navbar-brand > span {
+  font-size: 30px;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+}
+.cover .navbar-default .navbar-nav {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+}
+.cover .navbar-default .navbar-nav li a {
+  font-size: 18px;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+}
+.cover .navbar-default .navbar-nav li a:hover {
+  color: darkgray;
+}
+.cover > .top-nav-collapse {
+  background-color: white !important;
+  border-bottom: 1px solid darkgray;
+}
+.cover > .top-nav-collapse .navbar-brand > span {
+  font-size: 25px;
+}
+.cover > .top-nav-collapse .nav,
+.cover > .top-nav-collapse .navbar-brand {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.cover > .top-nav-collapse div > .navbar-nav > li.active > a {
+  background-color: lightgray !important;
+  border-radius: 5px;
+}
+.cover > .top-nav-collapse div > .navbar-nav > li.active > a:focus,
+.cover > .top-nav-collapse div > .navbar-nav > li.active > a:hover {
+  color: black;
+}
+.cover > .top-nav-collapse .navbar-brand > span,
+.cover > .top-nav-collapse .navbar-nav > li > a {
+  color: black;
+}
+.cover h1,
+.cover p {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.14902) 0 3px 5px, rgba(255, 255, 255, 0.298039) 0 -5px 35px;
+  font-size: 63px;
+}
+.cover p {
+  font-size: 25px;
+}
+.cover hr {
+  background: white;
+  max-width: 600px;
+}
+#gallery-page-top {
+  padding-top: 90px;
+}
+#gallery-navbar {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+  background-color: white !important;
+  border-bottom: 1px solid darkgray;
+}
+#gallery-navbar li a {
+  font-size: 18px;
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+}
+#gallery-navbar li a:hover {
+  color: darkgray;
+}
+#gallery-navbar .navbar-brand > span {
+  font-size: 25px;
+}
+#gallery-navbar .nav,
+#gallery-navbar .navbar-brand {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+#gallery-navbar div > .navbar-nav > li.active > a {
+  background-color: lightgray !important;
+  border-radius: 5px;
+}
+#gallery-navbar div > .navbar-nav > li.active > a:focus,
+#gallery-navbar div > .navbar-nav > li.active > a:hover {
+  color: black;
+}
+#gallery-navbar .navbar-brand > span,
+#gallery-navbar .navbar-nav > li > a {
+  color: black;
+}
+#about-us,
+#gallery-header {
+  background: none;
+}
+#about-us h1,
+#gallery-header h1,
+#about-us p,
+#gallery-header p {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+  color: black;
+}
+#about-us p,
+#gallery-header p {
+  text-align: justify;
+  font-family: 'Lora', serif;
+  font-style: normal;
+  text-indent: 30px;
+}
+#preview .gal,
+.gallery-row .gal {
+  position: relative;
+}
+#preview .fa-search-plus,
+.gallery-row .fa-search-plus {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#preview .img-container:hover .img-responsive,
+.gallery-row .img-container:hover .img-responsive {
+  transition: 0.5s ease;
+  opacity: 0.3;
+}
+#preview .img-container:hover .fa-search-plus,
+.gallery-row .img-container:hover .fa-search-plus {
+  opacity: 1;
+}
+#preview div img,
+.gallery-row div img {
+  margin-bottom: 1rem;
+}
+#view-gallery-btn {
+  background-color: gray;
+  color: white;
+}
+#view-gallery-btn:active,
+#view-gallery-btn:hover {
+  background-color: lightgray;
+  color: gray;
+}
+#contact-us {
+  background-color: lightgray;
+}
+#contact-us #contact-us-header h1,
+#contact-us #contact-us-header p {
+  font-family: 'Philosopher', sans-serif;
+  font-style: italic;
+  color: white;
+  color: black;
+}
+#contact-us #contact-us-header p {
+  font-size: 20px;
+}
+#contact-us .form-group {
+  margin-bottom: 0;
+}
+#contact-us .form-control {
+  font-family: 'Lora', serif;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid gray;
+  font-size: 1.5em;
+  background: none;
+  box-shadow: none !important;
+  resize: none;
+}
+#contact-us #input-email,
+#contact-us #input-name {
+  height: 60px;
+}
+#contact-us #input-name {
+  border-top: 1px solid gray;
+}
+#contact-us #send-email-btn {
+  margin-top: 25px;
+}
+@media screen and (min-width: 768px) {
+  #contact-us-header h1,
+  #gallery-header h1 {
+    font-size: 63px;
+  }
+}
+#wrap {
+  min-height: 90.4%;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+footer {
+  border-top: 2px solid gray;
+  padding: 20px 0 30px !important;
+}
+footer .background-image {
+  background-image: url('images/main_page/footer_background.jpg');
+  opacity: 0.3;
+}
+footer .social a {
+  padding-right: 20px !important;
+}
+footer .copyright {
+  margin-top: 30px;
+  margin-bottom: -15px;
+}
+.pagination > li > a {
+  font-size: 17px;
+}
+.nav-justified > li > a {
+  font-size: 18px;
+}
+a[class*=lightcase-icon-]:before {
+  text-decoration: none;
+}
+.modal-header {
+  border: none;
+}
