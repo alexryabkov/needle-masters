@@ -1,0 +1,4 @@
+.DS_Store
+venv
+needle_app.egg-info
+__pycache__
