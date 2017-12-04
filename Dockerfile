@@ -2,10 +2,10 @@ FROM ubuntu:17.10
 MAINTAINER Alexander Ryabkov "alexryabkov@gmail.com"
 
 RUN apt-get update
-RUN apt-get -y install python3.6 python3-pip supervisor nginx
+RUN apt-get -y install python3.6 python3-pip supervisor nginx sqlite3
 COPY . /needle-masters
 WORKDIR /needle-masters
-RUN pip3 install gunicorn
+RUN pip3 install gunicorn pillow
 RUN pip3 install -e .
 
 # Setup nginx
