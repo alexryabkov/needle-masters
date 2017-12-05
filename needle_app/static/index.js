@@ -32,7 +32,6 @@ function getImageData(categ, num) {
     var item_col = '.' + categ + '-item';
 
     $(item_col).show().css('opacity', 0);
-    console.log("getImageData called!");
     $.ajax({
         // Triggering "gallery_pagination" server method
         url: request_url,
