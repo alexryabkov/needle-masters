@@ -128,9 +128,9 @@ def initdb_command():
             data_dir = os.path.join(app.static_folder,
                                     'default_data', categ_name_en)
             for file_name in os.listdir(data_dir):
-                Image(filename=file_name, item_name='An Item',
+                Image(filename=file_name, item_name='Имя изделия',
                       item_price='1000.00',
-                      description='A description for the item',
+                      description='Описание изделия',
                       category=categ_record)
 
                 file_path = os.path.join(data_dir, file_name)

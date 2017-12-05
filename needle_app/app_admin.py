@@ -115,12 +115,13 @@ class ChangeAdminPassword(BaseView):
 
 
 class ImageFieldWidget(ImageUploadInput):
-    data_template = ('<div class="image-thumbnail">'
-                     ' <img %(image)s>'
-                     ' <input %(text)s>'
-                     '</div>'
-                     '<br>'
-                     '<input %(file)s>')
+    data_template = (
+        '<div class="image-thumbnail">'
+        ' <img style="max-width: 200px; max-height: 200px;" %(image)s>'
+        ' <input %(text)s>'
+        '</div>'
+        '<br>'
+        '<input %(file)s>')
 
 
 class ImageField(ImageUploadField):
@@ -149,7 +150,7 @@ class ImageView(ModelView):
                                base_path=IMAGES_BASE_PATH,
                                validators=[validators.DataRequired()],
                                url_relative_path=IMAGES_RELATIVE_PATH,
-                               thumbnail_size=(100, 100, True))
+                               thumbnail_size=(200, 200, True))
     }
     form_rules = ('filename', 'item_name', 'item_price',
                   'category', 'description')
