@@ -226,7 +226,7 @@ hr {
   color: darkgray;
 }
 .cover .cover-image {
-  background-image: url('images/main_page/cover.jpg');
+  background-image: url("images/main_page/cover.jpg");
   filter: brightness(40%);
 }
 .cover .navbar {
@@ -430,6 +430,14 @@ hr {
     font-size: 63px;
   }
 }
+@media screen and (max-width: 767px) {
+  #navbar-ex-collapse {
+    background: white;
+  }
+  #navbar-ex-collapse a {
+    color: black;
+  }
+}
 #wrap {
   min-height: 90.4%;
   margin: 0 auto -60px;
@@ -440,7 +448,7 @@ footer {
   padding: 20px 0 30px !important;
 }
 footer .background-image {
-  background-image: url('images/main_page/footer_background.jpg');
+  background-image: url("images/main_page/footer_background.jpg");
   opacity: 0.3;
 }
 footer .social a {
