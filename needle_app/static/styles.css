@@ -252,6 +252,20 @@ hr {
 .cover .navbar-default .navbar-nav li a:hover {
   color: darkgray;
 }
+.cover .navbar .navbar-toggle {
+  border-color: white;
+}
+.cover .navbar .navbar-toggle > .icon-bar {
+  background-color: white;
+}
+@media screen and (max-width: 767px) {
+  .cover .navbar #navbar-ex-collapse {
+    background: white;
+  }
+  .cover .navbar #navbar-ex-collapse a {
+    color: black;
+  }
+}
 .cover > .top-nav-collapse {
   background-color: white !important;
   border-bottom: 1px solid darkgray;
@@ -275,6 +289,12 @@ hr {
 .cover > .top-nav-collapse .navbar-brand > span,
 .cover > .top-nav-collapse .navbar-nav > li > a {
   color: black;
+}
+.cover > .top-nav-collapse .navbar-header > button {
+  border-color: #ddd;
+}
+.cover > .top-nav-collapse .navbar-toggle > .icon-bar {
+  background-color: #888;
 }
 .cover h1,
 .cover p {
@@ -428,14 +448,6 @@ hr {
   #contact-us-header h1,
   #gallery-header h1 {
     font-size: 63px;
-  }
-}
-@media screen and (max-width: 767px) {
-  #navbar-ex-collapse {
-    background: white;
-  }
-  #navbar-ex-collapse a {
-    color: black;
   }
 }
 #wrap {

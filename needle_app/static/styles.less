@@ -91,8 +91,35 @@ hr {
     .header_font;
   }
 
+  .navbar {
+    .navbar-toggle {
+      border-color: white;
+
+      & > .icon-bar {
+        background-color: white;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #navbar-ex-collapse {
+        background: white;
+
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+
   & > .top-nav-collapse {
     .nav-collapse;
+
+    .navbar-header > button {
+      border-color: #ddd;
+    }
+
+    .navbar-toggle > .icon-bar {
+      background-color: #888;
+    }
   }
 
   h1,
@@ -243,14 +270,6 @@ hr {
   #gallery-header {
     h1 {
       font-size: 63px;
-    }
-  }
-}
-@media screen and (max-width: 767px) {
-  #navbar-ex-collapse {
-    background: white;
-    a {
-      color: black;
     }
   }
 }
