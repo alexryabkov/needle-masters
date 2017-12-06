@@ -31,7 +31,8 @@ function getImageData(categ, num) {
     var request_url = '/' + categ + '/' + num;
     var item_col = '.' + categ + '-item';
 
-    $(item_col).show().css('opacity', 0);
+    $(item_col).delay(200);
+    $(item_col).show(0).css('opacity', 0);
     $.ajax({
         // Triggering "gallery_pagination" server method
         url: request_url,
@@ -46,7 +47,7 @@ function getImageData(categ, num) {
                     $(this).find('p').text(response[index].description);
                     $(this).animate({
                         opacity: 1
-                    }, 1000);
+                    });
                 } else {
                     $(this).hide();
                 };
