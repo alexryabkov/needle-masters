@@ -1,0 +1,2 @@
+30 5 * * 1 letsencrypt renew
+35 5 * * 1 service nginx reload

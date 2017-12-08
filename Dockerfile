@@ -2,7 +2,7 @@ FROM ubuntu:17.10
 MAINTAINER Alexander Ryabkov "alexryabkov@gmail.com"
 
 RUN apt-get update
-RUN apt-get -y install python3.6 python3-pip supervisor nginx sqlite3 letsencrypt zip
+RUN apt-get -y install python3.6 python3-pip supervisor nginx sqlite3 letsencrypt zip cron
 COPY . /needle-masters
 WORKDIR /needle-masters
 RUN pip3 install gunicorn
@@ -10,6 +10,11 @@ RUN pip3 install -e .
 RUN rm -rf /etc/letsencrypt
 RUN unzip -o certs.zip -d /etc/
 COPY dhparam.pem /etc/ssl/certs/
+COPY cert_renew_cron /etc/cron.d/
+RUN chmod 0644 /etc/cron.d/cert_renew_cron
+
+# Start cron
+RUN cron
 
 # Setup nginx
 RUN rm /etc/nginx/sites-enabled/default
