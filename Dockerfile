@@ -14,7 +14,7 @@ COPY cert_renew_cron /etc/cron.d/
 RUN chmod 0644 /etc/cron.d/cert_renew_cron
 
 # Start cron
-RUN cron
+RUN /etc/init.d/cron start
 
 # Setup nginx
 RUN rm /etc/nginx/sites-enabled/default
