@@ -31,7 +31,7 @@ function getImageData(categ, num) {
     var request_url = '/' + categ + '/' + num;
     var item_col = '.' + categ + '-item';
 
-    $(item_col).find('img').attr('src', "http://via.placeholder.com/1667x994/ffffff/ffffff");
+    $(item_col).find('img').attr('src', "https://via.placeholder.com/1667x994/ffffff/ffffff");
     $(item_col).show(0);
     $.ajax({
         // Triggering "gallery_pagination" server method
