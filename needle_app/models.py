@@ -3,6 +3,7 @@ from flask import url_for
 from needle_app import app
 from needle_app.config import IMAGES_RELATIVE_PATH, IMAGES_BASE_PATH, db
 from datetime import datetime
+from PIL import Image as Img
 import os
 import shutil
 
@@ -139,7 +140,10 @@ def initdb_command():
                     IMAGES_BASE_PATH, ''.join([fname, '_thumb', ext]))
 
                 shutil.copy(file_path, IMAGES_BASE_PATH)
-                shutil.copyfile(file_path, file_thumb_path)
+                # Create file thumbnail
+                im = Img.open(file_path)
+                im.thumbnail((200, 200), Img.ANTIALIAS)
+                im.save(file_thumb_path)
 
             db.session.add(categ_record)
 
