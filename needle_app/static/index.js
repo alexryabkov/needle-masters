@@ -31,8 +31,7 @@ function getImageData(categ, num) {
     var request_url = '/' + categ + '/' + num;
     var item_col = '.' + categ + '-item';
 
-    $(item_col).find('img').attr('src', "https://via.placeholder.com/1667x994/ffffff/ffffff");
-    $(item_col).show(0);
+    $(item_col).show().css('opacity', 0);
     $.ajax({
         // Triggering "gallery_pagination" server method
         url: request_url,
@@ -45,6 +44,9 @@ function getImageData(categ, num) {
                     $(this).find('.price').text(response[index].item_price + " руб.");
                     $(this).find('.item-name').text(response[index].item_name);
                     $(this).find('p').text(response[index].description);
+                    $(this).animate({
+                        opacity: 1
+                    });
                 } else {
                     $(this).hide();
                 };
