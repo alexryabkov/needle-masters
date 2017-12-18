@@ -66,7 +66,7 @@ function paginateImages(pages_per_category) {
             getImageData(categ, 1);
             $('div[id^=' + categ + '-pagination]').bootpag({
                 total: pages_per_category[categ],
-                maxVisible: 4,
+                maxVisible: 12,
                 firstLastUse: true,
                 first: '<span aria-hidden="true">&laquo;</span>',
                 prev: '<span aria-hidden="true">&lsaquo;</span>',
