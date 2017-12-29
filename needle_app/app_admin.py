@@ -60,7 +60,7 @@ class MyAdminIndexView(AdminIndexView):
     def display_visitors_stats(self):
         stats = []
         for rec in db.session.query(VisitStats).order_by(
-                VisitStats.date).limit(10).all():
+                VisitStats.date.desc()).limit(10).all()[::-1]:
             stats.append([rec.date.strftime('%b %d %Y'), rec.visits])
         return stats
 
